@@ -1,0 +1,26 @@
+.appRight__bottom {
+  width: 96%;
+  background-color: #e0e0e0;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.graphButtons {
+  margin: 0.75rem 0 1.25rem;
+}
+
+.graphSwitcherBtn {
+  padding: 0.45rem 0.75rem;
+  margin-right: 0.5rem;
+  font-size: 13px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  outline: none;
+  transition: background 0.25s, color 0.25s important;
+}
+
+.activeButton {
+  border: 1px solid rgba(187, 13, 13, 0.822) !important;
+  background-color: #d6788a !important;
+  color: white !important;
+}

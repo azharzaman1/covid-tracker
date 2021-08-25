@@ -1,38 +1,391 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+.app__left {
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  padding-bottom: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+body {
+  background-color: #f3f3f3f3;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.flexRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.flexColumn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.evenly {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.app__header {
+  margin-bottom: 13px;
+  border-radius: 7px;
+  z-index: 10;
+}
+
+.account {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  margin-right: 1.5rem;
+  padding: 0.45rem 0.53rem;
+  border-radius: 5px;
+  margin-top: 2px;
+  cursor: pointer !important;
+}
+
+.account > h3 {
+  font-size: 15.5px;
+  color: #575757;
+  margin-right: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+.MuiAvatar-root {
+  width: 42.5px !important;
+  height: 42.5px !important;
+}
+
+.header__loginText {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  margin-right: 1.2rem;
+}
+
+.display__name {
+  font-weight: 400;
+  font-size: 17.5px;
+  margin-right: 0.75rem;
+}
+
+.guestText {
+  color: #494949;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  margin-right: 1.2rem;
+}
+
+.dropdown__flagGlobal {
+  width: 20px;
+  margin-right: 8px;
+  margin-top: 2px;
+}
+
+.dropdown__flag {
+  width: 20px;
+  margin-right: 15px;
+  margin-top: 2px;
+}
+
+.header__dropdownBox {
+  margin-right: 1.1rem;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+  z-index: 11 !important;
+}
+
+.header__dropdownBox img {
+  margin-right: 11px;
+}
+
+.header__dropdownBox .dropdown__flagGlobal {
+  display: none;
+}
+
+.listItem {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+  font-family: "Inter", sans-serif !important;
+  z-index: 12 !important;
+}
+
+.app__stats {
+  margin: 0.5rem 0 1rem !important;
+  padding: 0 1rem !important;
+}
+
+.infoCard {
+  padding: 0.25rem 0;
+}
+
+.infoCard:nth-child(4) {
+  margin-right: 0;
+}
+
+.activeInfo__box {
+  border-top: 5px solid #a0f5f3;
+}
+
+.infoCard__title {
+  font-family: "Poppins", sans-serif;
+  color: #5f6468;
+  font-size: calc(16px + 0.4vw);
+  font-weight: 700;
+  text-align: left !important;
+}
+
+.infoCard__plus {
+  color: #cc1034;
+  font-size: calc(16px + 0.4vw);
+  margin-top: 15px;
+}
+
+.infoCard__total {
+  color: #6c757d;
+  font-size: calc(10px + 0.4vw);
+  font-weight: 700;
+  margin-top: 15px;
+}
+
+.map {
+  padding: 1rem;
+  margin: 0 1rem;
+  border-radius: 10px;
+  background-color: white;
+  height: 500px;
+  -webkit-box-shadow: 0 0 8px -4px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 8px -4px rgba(0, 0, 0, 0.5);
+}
+
+.map .leaflet-container {
+  height: 100%;
+}
+
+.mapPopup__cont {
+  width: 150px;
+}
+
+.mapPopup__flag {
+  height: 80px;
+  width: 100%;
+  background-size: cover;
+  background-position: 100% 50%;
+  border-radius: 5px;
+}
+
+.mapPopup__countryName {
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+  margin-top: 5px;
+}
+
+.mapPopup__cases,
+.mapPopup__recovered,
+.mapPopup__deaths {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.app__right {
+  margin-top: 1.03rem;
+  -webkit-box-shadow: -2.5px -2.5px 10px -5px #c7c7c7, 2px 2px 10px -5px #c7c7c7 !important;
+          box-shadow: -2.5px -2.5px 10px -5px #c7c7c7, 2px 2px 10px -5px #c7c7c7 !important;
+  max-height: 95.65vh;
+  margin: 1.03rem 0.75rem 0;
+}
+
+.appRight__top h3 {
+  font-size: 18px;
+  font-family: "poppins", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 0.35rem;
+}
+
+.table {
+  color: #6a5d5d;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin: 8px 1rem;
+  cursor: all-scroll;
+}
+
+.table::-webkit-scrollbar {
+  display: none !important;
+}
+
+.appRight__topTable {
+  height: 372px;
+}
+
+.tableRow {
+  padding: 4.5px 7.5px;
+}
+
+.tableRow td {
+  font-size: 15px;
+}
+
+.tableRow strong {
+  color: #7c7c7c;
+  font-size: 14.5px;
+}
+
+.tableRow:nth-of-type(odd) {
+  background-color: #f3f2f8;
+}
+
+.totalCasesList__tableContainer {
+  margin-top: 1.03rem;
+  background-color: white;
+  -webkit-box-shadow: -2.5px -2.5px 10px -5px #c7c7c7, 2px 2px 10px -5px #c7c7c7 !important;
+          box-shadow: -2.5px -2.5px 10px -5px #c7c7c7, 2px 2px 10px -5px #c7c7c7 !important;
+  padding-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.totalCasesList__tableContainer h3 {
+  text-align: center;
+  padding-top: 10px !important;
+}
+
+.totalCasesList__table {
+  max-height: 550px !important;
+}
+
+.appRight__bottom {
+  width: 96%;
+  background-color: #e0e0e0;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.graphButtons {
+  margin: 0.75rem 0 1.25rem;
+}
+
+.graphSwitcherBtn {
+  padding: 0.45rem 0.75rem;
+  margin-right: 0.5rem;
+  font-size: 13px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  outline: none;
+  -webkit-transition: background 0.25s, color 0.25s important;
+  transition: background 0.25s, color 0.25s important;
+}
+
+.activeButton {
+  border: 1px solid rgba(187, 13, 13, 0.822) !important;
+  background-color: #d6788a !important;
+  color: white !important;
+}
+
+.graphical__tagline {
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+  font-size: 28px;
+  font-family: "poppins", sans-serif;
+  font-weight: 600;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.graph__container {
+  padding: 0.85rem 1.55rem 0.35rem;
+  margin: 0.5rem 1rem 0.5rem;
+  border-radius: 5px;
+  background-color: #e0e0e0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.graph__container h3 {
+  margin-top: 0rem;
+  margin-bottom: 1.25rem;
+  font-size: 18px;
+  font-family: "poppins", sans-serif;
+  font-weight: 600;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.graph__container canvas {
+  max-height: 246px !important;
+  overflow-y: hidden;
+  cursor: crosshair;
+  margin-bottom: 0.25rem;
 }
 
-.App-link {
-  color: #61dafb;
+.appRight__bottomGraph {
+  padding: 0rem 0rem 0.45rem;
+  background-color: #e0e0e0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.appRight__bottomGraph h3 {
+  text-align: center;
 }
+
+.appRight__bottomGraph canvas {
+  margin: -0.65rem 0 0.5rem -0.75rem;
+  width: 325px !important;
+  max-width: 109% !important;
+  overflow-x: hidden;
+  height: 230px !important;
+}
+/*# sourceMappingURL=App.css.map */

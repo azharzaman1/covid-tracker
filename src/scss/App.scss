@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+.app {
+  // padding: 10px 14px;
+}
+
+.app__left {
+  // flex: 0.775;
+  // padding: 0 1rem 0 0;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  padding-bottom: 1rem;
+}
+
+.app__right {
+  // flex: 0.225 !important;
+  // margin-right: 8px;
+}
+
+@import "./generic";
+@import "./header";
+@import "./appStats";
+@import "./map";
+@import "./appRight_top";
+@import "./appRight_bottom";
+@import "./appBottomGraphs";

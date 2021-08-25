@@ -1,0 +1,72 @@
+@media screen and (max-width: 1100px) {
+  .appTop {
+    flex-direction: column;
+  }
+
+  .app {
+    padding: 10px 8px;
+  }
+
+  .app__left {
+    flex: 1;
+    padding: 0 1rem 0 0;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    padding-bottom: 1rem;
+  }
+
+  .app__right {
+    min-width: 25%;
+  }
+
+  /* Header */
+
+  .MuiAvatar-root {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .header__loginText {
+    font-size: 15px;
+  }
+
+  .guestText {
+    font-size: 18px;
+  }
+
+  /* Map */
+
+  .map {
+    margin: 0 0.35rem;
+    margin-right: 0.18rem;
+  }
+
+  /* App bottom mobile */
+
+  .appBottom__mobile {
+    width: 100%;
+  }
+
+  .appBottom__mobile > .app__right {
+    flex: 0.25;
+  }
+
+  .appBottoms__mobilesGraphs {
+    display: flex;
+    flex: 0.75;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 66%;
+  }
+
+  .appBottoms__mobilesGraphs > .graph__container {
+    width: 95%;
+    /* margin: 1rem 4rem; */
+  }
+
+  .appBottoms__mobilesGraphs > .graph__container > canvas {
+    min-width: 95% !important;
+    padding: 0rem 0 0;
+  }
+}

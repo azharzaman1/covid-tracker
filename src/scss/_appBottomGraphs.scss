@@ -1,0 +1,47 @@
+.graphical__tagline {
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+  font-size: 28px;
+  font-family: "poppins", sans-serif;
+  font-weight: 600;
+  text-align: center;
+}
+
+.graph__container {
+  padding: 0.85rem 1.55rem 0.35rem;
+  margin: 0.5rem 1rem 0.5rem;
+  border-radius: 5px;
+  background-color: #e0e0e0;
+
+  h3 {
+    margin-top: 0rem;
+    margin-bottom: 1.25rem;
+    font-size: 18px;
+    font-family: "poppins", sans-serif;
+    font-weight: 600;
+  }
+
+  canvas {
+    max-height: 246px !important;
+    overflow-y: hidden;
+    cursor: crosshair;
+    margin-bottom: 0.25rem;
+  }
+}
+
+.appRight__bottomGraph {
+  padding: 0rem 0rem 0.45rem;
+  background-color: #e0e0e0;
+
+  h3 {
+    text-align: center;
+  }
+
+  canvas {
+    margin: -0.65rem 0 0.5rem -0.75rem;
+    width: 325px !important;
+    max-width: 109% !important;
+    overflow-x: hidden;
+    height: 230px !important;
+  }
+}

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,qBAAqB,CAAC;EACpB,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,IAAI;EACZ,gBAAgB,EAAE,KAAK;EACvB,MAAM,EAAE,WAAW;CACpB",
+    "sources": [
+        "scss/authPage.scss"
+    ],
+    "names": [],
+    "file": "authPage.css"
+}

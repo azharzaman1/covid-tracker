@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+.authentication__page,
+.login {
+  height: 100vh !important;
+}
+
+.authentication__contentContainer,
+.login__contentContainer {
+  padding-top: 5rem;
+}
+
+.authentication__cont,
+.login__cont {
+  background-color: white;
+  border-radius: 5.5px;
+  box-shadow: 4px 4px 10px -3px rgba(0, 0, 0, 0.15),
+    -4px -4px 10px -3px rgba(0, 0, 0, 0.15);
+  padding: 1.5rem 0.25rem;
+}
+
+.auth__taglineUp {
+  color: rgb(34, 34, 34);
+}
+
+.authentication__cont > form,
+.login__cont > form {
+  width: 100%;
+  margin-top: 1.15rem;
+}
+
+.authentication__cont > form > input,
+.login__cont > form > input {
+  padding: 10px;
+  width: 75%;
+  font-size: 15px;
+  outline: none;
+  border-radius: 2px;
+  margin-bottom: 0.75rem;
+  border: 1px solid lightgray;
+}
+
+.authentication__cont > form > input:focus,
+.login__form > input:focus {
+  border: 1px solid #c7284a;
+  background-color: #fcfcfc;
+}
+
+.auth__btns {
+  padding: 0.4em 1.25rem;
+  font-size: 16px;
+  outline: none;
+}
+
+.auth__btns.signup,
+.auth__btns.loginBtn {
+  margin-bottom: 1.5rem;
+  background-color: #c7284a !important;
+  color: white !important;
+  letter-spacing: 1px !important;
+  cursor: pointer;
+}
+
+.googleSign {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 0rem 0.65rem 0 0;
+  overflow: hidden;
+  border-radius: 3px;
+  margin-top: 1rem;
+}
+
+.googleSign > img,
+.logIn__googleSignIn > img {
+  width: 43px;
+  margin-right: 0.65rem;
+}
+
+.skip {
+  margin-top: 0.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.logIn__googleSignIn {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 0rem 0.65rem 0 0;
+  overflow: hidden;
+  border-radius: 3.5px;
+  margin-top: 1rem;
+}
+
+.hideGuestTextBCZnoNameNoPhoto {
+  display: none;
+}
