@@ -314,10 +314,9 @@ img {
 }
 
 .appRight__bottom {
-  width: 96%;
   background-color: #e0e0e0;
   margin: 0 auto;
-  border-radius: 4px;
+  border-radius: 0px;
 }
 
 .graphButtons {
@@ -360,9 +359,10 @@ img {
 .graph__container h3 {
   margin-top: 0rem;
   margin-bottom: 1.25rem;
-  font-size: 18px;
+  font-size: 15px;
   font-family: "poppins", sans-serif;
   font-weight: 600;
+  text-align: center;
 }
 
 .graph__container canvas {
@@ -378,14 +378,12 @@ img {
 }
 
 .appRight__bottomGraph h3 {
-  text-align: center;
+  margin-bottom: 0.75rem !important;
 }
 
 .appRight__bottomGraph canvas {
-  margin: -0.65rem 0 0.5rem -0.75rem;
-  width: 325px !important;
-  max-width: 109% !important;
-  overflow-x: hidden;
-  height: 230px !important;
+  margin: -0.65rem 0 0.5rem;
+  max-width: 100% !important;
+  height: 180px !important;
 }
 /*# sourceMappingURL=App.css.map */
