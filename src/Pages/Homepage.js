@@ -54,14 +54,17 @@ const Homepage = () => {
   const [mapCountries, setMapCountries] = React.useState([]);
   const [mapDisplayDataType, setMapDisplayDataType] = React.useState("cases");
   const [graphDataType, setGraphDataType] = React.useState("cases");
+
   const [mapCenter, setMapCenter] = React.useState({
-    lat: "41.3999",
-    lng: "-4.2245",
+    lat: "38.9637",
+    lng: "35.2433",
   });
+
+  console.log(mapCenter);
 
   const [mapZoom, setMapZoom] = React.useState(2.5);
 
-  const [graphDuration, setGraphDuration] = React.useState(100);
+  const [graphDuration, setGraphDuration] = React.useState(150);
 
   React.useEffect(() => {
     fetch("https://disease.sh/v3/covid-19/all")
@@ -307,7 +310,6 @@ const Homepage = () => {
                   </div>
                   <div className="appRight__bottom">
                     <LineGraph
-                      sideBarGraph
                       graphDataDuration="25"
                       graphTagline="Worldwide New Cases"
                       setGraphType={mapDisplayDataType}
