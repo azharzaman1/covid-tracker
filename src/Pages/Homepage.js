@@ -17,7 +17,7 @@ import Map from "../Components/Map";
 import Table from "../Components/Table";
 import LineGraph from "../Components/LineGraph";
 import { Link } from "react-router-dom";
-import { auth, db } from "../Files/firebase";
+import { auth } from "../Files/firebase";
 import {
   sortData,
   NormalFiguresToCommas,
@@ -26,7 +26,7 @@ import {
 } from "../Files/utilities";
 import { useStateValue } from "../Files/StateProvider";
 import { useMediaQuery } from "@material-ui/core";
-// import Copyright from "../Components/Copyright";
+import CopyrightFooter from "../Components/CopyrightFooter/CopyrightFooter";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -346,14 +346,18 @@ const Homepage = () => {
                 </Grid>
                 <Grid item xs="12" sm="7">
                   <LineGraph
-                    needTagline="Total Cases"
+                    needTagline
+                    mapTagline="Total Cases"
                     graphDataDuration={50}
                     sideBarGraph
+                    setGraphType="cases"
                   />
                   <LineGraph
-                    needTagline="Total Deaths"
+                    needTagline
+                    mapTagline="Total Deaths"
                     graphDataDuration={50}
                     sideBarGraph
+                    setGraphType="deaths"
                   />
                 </Grid>
               </Grid>
@@ -362,7 +366,7 @@ const Homepage = () => {
         </Grid>
       </Container>
 
-      {/* <Copyright /> */}
+      <CopyrightFooter />
     </div>
   );
 };
