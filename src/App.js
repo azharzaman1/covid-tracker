@@ -18,9 +18,7 @@ const App = () => {
 
   const [user, setUser] = useState({});
 
-  useEffect(() => {
-    console.log("CURRENT LOGGED IN USER ->>>>", currentUser);
-  }, [currentUser]);
+  useEffect(() => {}, [currentUser]);
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -38,7 +36,7 @@ const App = () => {
         });
       }
     });
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     const fetchDataFromDB = () => {
@@ -54,7 +52,7 @@ const App = () => {
     };
 
     fetchDataFromDB();
-  }, [user]);
+  }, [user, dispatch]);
 
   useEffect(() => {
     setSecureData({

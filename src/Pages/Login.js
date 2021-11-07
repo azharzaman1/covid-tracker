@@ -15,8 +15,6 @@ const Login = () => {
   let history = useHistory();
 
   let signIn = () => {
-    console.log("Visitors Email =>", email, "Visitors Password", password);
-
     auth
       .signInWithEmailAndPassword(email, password)
       .then((authResponse) => {
@@ -31,7 +29,6 @@ const Login = () => {
     auth
       .signInWithPopup(provider)
       .then((result) => {
-        console.log(result);
         dispatch({
           type: actionTypes.SET_USER,
           user: result.user,

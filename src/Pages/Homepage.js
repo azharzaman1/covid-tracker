@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import TrackerLogo from "../tracker_logo.png";
 import WorldwideIcon from "../worldwideIcon.png";
 import {
@@ -41,44 +41,41 @@ const Homepage = () => {
   const isTablet = useMediaQuery(theme.breakpoints.down("sm"));
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
-  console.log("Desk", isDesktop && isDesktop);
-  console.log("Tab", isTablet && !isMobile ? true : false);
-  console.log("Mob", isMobile && isMobile);
-
   let [{ currentUser, fetchedUserDetails }, dispatch] = useStateValue();
 
-  const [countryNames, setCountryNames] = React.useState([]);
-  const [selectedCountry, setSelectedCountry] = React.useState("worldwide");
-  const [countryInfo, setCountryInfo] = React.useState({});
-  const [tableListData, setTableListData] = React.useState([]);
-  const [mapCountries, setMapCountries] = React.useState([]);
-  const [mapDisplayDataType, setMapDisplayDataType] = React.useState("cases");
-  const [graphDataType, setGraphDataType] = React.useState("cases");
+  const [countryNames, setCountryNames] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState("worldwide");
+  const [countryInfo, setCountryInfo] = useState({});
+  const [tableListData, setTableListData] = useState([]);
+  const [mapCountries, setMapCountries] = useState([]);
+  const [mapDisplayDataType, setMapDisplayDataType] = useState("cases");
+  const [graphDataType, setGraphDataType] = useState("cases");
 
-  const [mapCenter, setMapCenter] = React.useState({
+  const [mapCenter, setMapCenter] = useState({
     lat: "38.9637",
     lng: "35.2433",
   });
 
-  console.log(mapCenter);
+  const [mapZoom, setMapZoom] = useState(2.5);
 
-  const [mapZoom, setMapZoom] = React.useState(2.5);
+  const [graphDuration, setGraphDuration] = useState(150);
 
-  const [graphDuration, setGraphDuration] = React.useState(150);
-
-  React.useEffect(() => {
-    fetch("https://disease.sh/v3/covid-19/all")
+  useEffect(() => {
+    fetch("/all")
       .then((response) => response.json())
       .then((data) => {
         setCountryInfo(data);
+
+        console.log("1", data);
       });
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const getCountriesData = async () => {
-      await fetch("https://disease.sh/v3/covid-19/countries")
+      await fetch("/countries")
         .then((response) => response.json())
         .then((data) => {
+          console.log("2", data);
           const countries = data.map((country) => ({
             name: country.country,
             code: country.countryInfo.iso2,
@@ -98,10 +95,7 @@ const Homepage = () => {
     const COUNTRY_CODE = selectedCountryFromList.target.value;
     setSelectedCountry(COUNTRY_CODE);
 
-    let API_URL =
-      COUNTRY_CODE === "worldwide"
-        ? "https://disease.sh/v3/covid-19/all"
-        : `https://disease.sh/v3/covid-19/countries/${COUNTRY_CODE}`;
+    let API_URL = COUNTRY_CODE === "worldwide" ? "/all" : `/${COUNTRY_CODE}`;
 
     await fetch(API_URL)
       .then((response) => response.json())
@@ -115,7 +109,7 @@ const Homepage = () => {
       });
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     let GraphsDataSwitcher = () => {
       let CasesSwitch = document.getElementById("graphSwitcher__cases");
 
@@ -153,7 +147,7 @@ const Homepage = () => {
 
   return (
     <div className="app flexColumn">
-      <Container maxWidth="lg" className={c.container}>
+      <Container maxWidth="false" className={c.container}>
         <Grid container direction="column">
           <Grid item container className="appTop flexRow">
             <Grid

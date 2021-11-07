@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import numeral from "numeral";
 
@@ -37,7 +37,6 @@ const graphOpts = {
           display: false,
         },
         ticks: {
-          // Include a dollar sign in the ticks
           callback: function (value, index, values) {
             return numeral(value).format("0a");
           },
@@ -55,7 +54,7 @@ const LineGraph = ({
   mapTagline,
   specificGraphContainer,
 }) => {
-  const [graphData, setGraphData] = React.useState({});
+  const [graphData, setGraphData] = useState({});
 
   const BuildChartData = (fetchedGraphData, dataType) => {
     let builtGraphData = [];
@@ -74,9 +73,9 @@ const LineGraph = ({
     return builtGraphData;
   };
 
-  const GRAPH_DATA_API_URL = `https://disease.sh/v3/covid-19/historical/all?lastdays=${graphDataDuration}`;
+  const GRAPH_DATA_API_URL = `/historical/all?lastdays=${graphDataDuration}`;
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchGraphData = async () => {
       await fetch(GRAPH_DATA_API_URL)
         .then((response) => response.json())

@@ -38,7 +38,6 @@ const Authentication = () => {
     auth
       .signInWithPopup(provider)
       .then((user) => {
-        console.log("Google Signed In User =>>>", user);
         if (user) {
           history.push("/");
         }

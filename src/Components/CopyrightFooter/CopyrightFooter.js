@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, makeStyles, Chip } from "@material-ui/core";
-import { Facebook, GitHub, Twitter, Language } from "@material-ui/icons";
+import { GitHub, Twitter, Language, LinkedIn } from "@material-ui/icons";
 
 import "./CopyrightFooter.css";
 
@@ -42,9 +42,9 @@ const CopyrightFooter = () => {
             icon={<GitHub fontSize="small" />}
           />
           <MuiChip
-            link="https://web.facebook.com/DrAzharZaman1/"
-            title="Facebook"
-            icon={<Facebook fontSize="small" />}
+            link="https://www.linkedin.com/in/azhar-zaman-06b454221"
+            title="LinkedIn"
+            icon={<LinkedIn fontSize="small" />}
           />
           <MuiChip
             link="https://twitter.com/DrAzharZaman"

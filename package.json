@@ -35,6 +35,7 @@
       "react-app/jest"
     ]
   },
+  "proxy": "https://disease.sh/v3/covid-19",
   "browserslist": {
     "production": [
       ">0.2%",
