@@ -39,7 +39,6 @@ const Homepage = () => {
   const theme = useTheme();
   const isDesktop = useMediaQuery("(min-width:960px)");
   const isTablet = useMediaQuery(theme.breakpoints.down("sm"));
-  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
   let [{ currentUser, fetchedUserDetails }, dispatch] = useStateValue();
 
@@ -333,7 +332,7 @@ const Homepage = () => {
               >
                 <Grid item xs="12" sm="5" style={{ maxWidth: "97%" }}>
                   <div className="totalCasesList__tableContainer">
-                    <h3>Live Cases by Countries</h3>
+                    <h3>Live Cases by Country</h3>
                     <Table
                       listData={tableListData}
                       className="totalCasesList__table"
