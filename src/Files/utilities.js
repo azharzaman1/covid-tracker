@@ -54,6 +54,7 @@ export const showDataOnMap = (mapData, mapType = "cases") => {
   return mapData.map((countryMapData) => {
     return (
       <Circle
+        key={countryMapData.country}
         className={countryMapData.country}
         center={[
           countryMapData.countryInfo.lat,

@@ -5,7 +5,7 @@ const Table = ({ listData, className }) => {
   return (
     <div className={`table ${className}`}>
       {listData.map(({ country, cases }) => (
-        <tr className="tableRow flexRow between center">
+        <tr key={cases} className="tableRow flexRow between center">
           <td>{country}</td>
           <td>
             <strong> {NormalFiguresToCommas(cases)} </strong>

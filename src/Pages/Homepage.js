@@ -60,7 +60,7 @@ const Homepage = () => {
   const [graphDuration, setGraphDuration] = useState(150);
 
   useEffect(() => {
-    fetch("/all")
+    fetch("https://disease.sh/v3/covid-19/all")
       .then((response) => response.json())
       .then((data) => {
         setCountryInfo(data);
@@ -71,7 +71,7 @@ const Homepage = () => {
 
   useEffect(() => {
     const getCountriesData = async () => {
-      await fetch("/countries")
+      await fetch("https://disease.sh/v3/covid-19/countries")
         .then((response) => response.json())
         .then((data) => {
           console.log("2", data);
@@ -94,7 +94,10 @@ const Homepage = () => {
     const COUNTRY_CODE = selectedCountryFromList.target.value;
     setSelectedCountry(COUNTRY_CODE);
 
-    let API_URL = COUNTRY_CODE === "worldwide" ? "/all" : `/${COUNTRY_CODE}`;
+    let API_URL =
+      COUNTRY_CODE === "worldwide"
+        ? "https://disease.sh/v3/covid-19/all"
+        : `https://disease.sh/v3/covid-19/${COUNTRY_CODE}`;
 
     await fetch(API_URL)
       .then((response) => response.json())
@@ -332,7 +335,7 @@ const Homepage = () => {
               >
                 <Grid item xs="12" sm="5" style={{ maxWidth: "97%" }}>
                   <div className="totalCasesList__tableContainer">
-                    <h3>Live Cases by Country</h3>
+                    <h3>Live Cases by countries</h3>
                     <Table
                       listData={tableListData}
                       className="totalCasesList__table"
