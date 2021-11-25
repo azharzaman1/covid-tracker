@@ -73,7 +73,7 @@ const LineGraph = ({
     return builtGraphData;
   };
 
-  const GRAPH_DATA_API_URL = `/historical/all?lastdays=${graphDataDuration}`;
+  const GRAPH_DATA_API_URL = `https://disease.sh/v3/covid-19/historical/all?lastdays=${graphDataDuration}`;
 
   useEffect(() => {
     const fetchGraphData = async () => {
