@@ -16,7 +16,7 @@ import InfoBox from "../Components/InfoBox";
 import Map from "../Components/Map";
 import Table from "../Components/Table";
 import LineGraph from "../Components/LineGraph";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { auth } from "../Files/firebase";
 import {
   sortData,
@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
 const Homepage = () => {
   const c = useStyles();
   const theme = useTheme();
+  const history = useHistory();
   const isDesktop = useMediaQuery("(min-width:960px)");
   const isTablet = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -90,20 +91,21 @@ const Homepage = () => {
     getCountriesData();
   }, []);
 
-  const onCountryChange = async (selectedCountryFromList) => {
-    const COUNTRY_CODE = selectedCountryFromList.target.value;
+  const onCountryChange = async (e) => {
+    const COUNTRY_CODE = e.target.value;
+    console.log(COUNTRY_CODE);
     setSelectedCountry(COUNTRY_CODE);
 
     let API_URL =
       COUNTRY_CODE === "worldwide"
         ? "https://disease.sh/v3/covid-19/all"
-        : `https://disease.sh/v3/covid-19/${COUNTRY_CODE}`;
+        : `https://disease.sh/v3/covid-19/countries/${COUNTRY_CODE}`;
 
     await fetch(API_URL)
       .then((response) => response.json())
       .then((data) => {
         setCountryInfo(data);
-        console.log("COUNTRY SWITVH FETCHED DATA", data);
+        console.log("COUNTRY SWITCH FETCHED DATA", data);
         setMapZoom(5);
         if (data) {
           setMapCenter([data?.countryInfo.lat, data?.countryInfo.long]);
@@ -144,7 +146,11 @@ const Homepage = () => {
   }, []);
 
   const onLogout = () => {
-    auth.signOut();
+    if (currentUser) {
+      auth.signOut();
+    } else {
+      history.push("/auth/login");
+    }
   };
 
   return (
@@ -191,7 +197,9 @@ const Homepage = () => {
                   {currentUser?.photoURL && isDesktop ? (
                     <div className="account flexRow evenly center pointer">
                       <h3>{currentUser.displayName}</h3>
-                      <Avatar className="pointer" src={currentUser.photoURL} />
+                      <Avatar className="pointer" src={currentUser?.photoURL}>
+                        {!currentUser?.photoURL && currentUser?.displayName[0]}
+                      </Avatar>
                     </div>
                   ) : null}
                   {!currentUser ? (
@@ -213,16 +221,14 @@ const Homepage = () => {
                           />
                           Worldwide
                         </MenuItem>
-                        {countryNames.map((countryName) => (
-                          <MenuItem
-                            className="listItem"
-                            value={countryName.code}
-                          >
+                        {countryNames.map(({ code, flagSrc, name }) => (
+                          <MenuItem className="listItem" value={code}>
                             <img
                               className="dropdown__flag"
-                              src={countryName.flagSrc}
+                              src={flagSrc}
+                              alt={code}
                             />
-                            {countryName.name}
+                            {name}
                           </MenuItem>
                         ))}
                       </Select>
