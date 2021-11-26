@@ -18,28 +18,34 @@ const App = () => {
 
   const [user, setUser] = useState({});
 
-  useEffect(() => {}, [currentUser]);
+  useEffect(() => {
+    let mounted = true;
+    if (mounted) {
+      auth.onAuthStateChanged((authUser) => {
+        if (authUser) {
+          setUser(authUser);
+          dispatch({
+            type: "SET_USER",
+            user: authUser,
+          });
+          localStorage.setItem("userID", authUser?.uid);
+        } else {
+          dispatch({
+            type: "SET_USER",
+            user: null,
+          });
+        }
+      });
+    }
+
+    return () => {
+      mounted = false;
+    };
+  }, [dispatch, auth]);
 
   useEffect(() => {
-    auth.onAuthStateChanged((authUser) => {
-      if (authUser) {
-        setUser(authUser);
-        dispatch({
-          type: "SET_USER",
-          user: authUser,
-        });
-        localStorage.setItem("userID", authUser?.uid);
-      } else {
-        dispatch({
-          type: "SET_USER",
-          user: null,
-        });
-      }
-    });
-  }, [dispatch]);
-
-  useEffect(() => {
-    const fetchDataFromDB = () => {
+    let mounted = true;
+    if (mounted) {
       const docRef = db.collection("users").doc(user?.uid);
 
       docRef.get().then((doc) => {
@@ -49,21 +55,37 @@ const App = () => {
           fetchedData: doc.data(),
         });
       });
-    };
+    }
 
-    fetchDataFromDB();
+    return () => {
+      mounted = false;
+    };
   }, [user, dispatch]);
 
   useEffect(() => {
-    setSecureData({
-      displayName: fetchedData?.displayName,
-      userID: fetchedData?.userID,
-      email: fetchedData?.email,
-    });
+    let mounted = true;
+    if (mounted) {
+      setSecureData({
+        displayName: fetchedData?.displayName,
+        userID: fetchedData?.userID,
+        email: fetchedData?.email,
+      });
+    }
+
+    return () => {
+      mounted = false;
+    };
   }, [fetchedData]);
 
   useEffect(() => {
-    localStorage.setItem("fetchedData", JSON.stringify(secureData));
+    let mounted = true;
+    if (mounted) {
+      localStorage.setItem("fetchedData", JSON.stringify(secureData));
+    }
+
+    return () => {
+      mounted = false;
+    };
   }, [secureData]);
 
   return (
@@ -79,7 +101,7 @@ const App = () => {
           <Route path="/auth">
             <Authentication />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Homepage displayName={fetchedData?.displayName} />
           </Route>
         </Switch>

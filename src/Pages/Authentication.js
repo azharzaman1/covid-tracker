@@ -83,29 +83,24 @@ const Authentication = () => {
                 <input
                   className="auth__btns signup"
                   type="submit"
-                  value="SignUp"
+                  value="Signup"
                 />
               </form>
-              <div className="authAction__btns flexColumn evenly center">
-                <Link to="/auth/login">
-                  <Button variant="outlined" className="auth__btns">
-                    LogIn Instead
-                  </Button>
-                </Link>
-              </div>
-
               <a
                 onClick={continueWithGoogle}
                 className="googleSign flexRow between center pointer"
               >
-                <img src={GoogleIcon} /> Continue with Google
+                <img src={GoogleIcon} alt="Google_Logo" /> Continue with Google
               </a>
             </div>
-            <Grid container justifyContent="center">
-              <Link className="skip" to="/">
-                Skip
-              </Link>
-            </Grid>
+          </Grid>
+          <div className="authAction__btns flexColumn evenly center">
+            <Link to="/auth/login">Logn Instead</Link>
+          </div>
+          <Grid container justifyContent="center">
+            <Link className="skip" to="/">
+              Skip
+            </Link>
           </Grid>
         </Grid>
       </Container>

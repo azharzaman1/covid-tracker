@@ -31,12 +31,12 @@
 
 .authentication__cont > form > input,
 .login__cont > form > input {
-  padding: 10px;
+  padding: 14px 10px;
   width: 75%;
   font-size: 15px;
   outline: none;
   border-radius: 2px;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
   border: 1px solid lightgray;
 }
 
@@ -47,9 +47,13 @@
 }
 
 .auth__btns {
-  padding: 0.4em 1.25rem;
+  width: 70%;
   font-size: 16px;
   outline: none;
+}
+
+.authAction__btns {
+  margin-top: 0.75rem;
 }
 
 .auth__btns.signup,

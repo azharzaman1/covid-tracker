@@ -70,19 +70,17 @@ const Login = () => {
               >
                 LogIn
               </Button>
-              <Link to="/auth">
-                <Button variant="outlined" className="loginPage">
-                  Signup Instead
-                </Button>
-              </Link>
               <a
                 onClick={continueWithGoogle}
                 className="logIn__googleSignIn flexRow between center pointer"
               >
-                <img src={GoogleIcon} /> Continue with Google
+                <img src={GoogleIcon} alt="google_logo" /> Continue with Google
               </a>
             </div>
           </Grid>
+          <div className="authAction__btns">
+            <Link to="/auth">Signup Instead</Link>
+          </div>
         </Grid>
       </Container>
     </div>
