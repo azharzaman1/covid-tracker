@@ -3,6 +3,8 @@ import { Grid, makeStyles, Chip } from "@material-ui/core";
 import { GitHub, Twitter, Language, LinkedIn } from "@material-ui/icons";
 
 import "./CopyrightFooter.css";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const useStyles = makeStyles(() => ({
   footerSection: {
@@ -17,7 +19,19 @@ const useStyles = makeStyles(() => ({
 }));
 
 const CopyrightFooter = () => {
+  const [azProfile, setAzProfile] = useState(true);
   const c = useStyles();
+
+  useEffect(() => {
+    if (window !== "undefined") {
+      setAzProfile(
+        window.location.hostname === "covidtracker.azharzaman.com"
+          ? true
+          : false
+      );
+    }
+  }, []);
+
   return (
     <div
       className={`footerSection ${c.footerSection}`}
@@ -32,25 +46,38 @@ const CopyrightFooter = () => {
         </Grid>
         <Grid item container justifyContent="center">
           <MuiChip
-            link="https://azharzaman.com"
+            link={
+              azProfile
+                ? "https://azharzaman.com"
+                : "https://kamranashraf.vercel.app"
+            }
             title="Website"
             icon={<Language fontSize="small" />}
           />
           <MuiChip
-            link="https://github.com/azharzaman1"
+            link={
+              azProfile
+                ? "https://github.com/azharzaman1"
+                : "https://github.com/codeByKamran"
+            }
             title="Github"
             icon={<GitHub fontSize="small" />}
           />
-          <MuiChip
-            link="https://www.linkedin.com/in/azhar-zaman-06b454221"
-            title="LinkedIn"
-            icon={<LinkedIn fontSize="small" />}
-          />
-          <MuiChip
-            link="https://twitter.com/DrAzharZaman"
-            title="Twitter"
-            icon={<Twitter fontSize="small" />}
-          />
+          ]
+          {azProfile && (
+            <>
+              <MuiChip
+                link="https://www.linkedin.com/in/azhar-zaman"
+                title="LinkedIn"
+                icon={<LinkedIn fontSize="small" />}
+              />
+              <MuiChip
+                link="https://twitter.com/idrazhar"
+                title="Twitter"
+                icon={<Twitter fontSize="small" />}
+              />
+            </>
+          )}
         </Grid>
       </Grid>
     </div>

@@ -134,6 +134,7 @@ const Homepage = () => {
       });
 
       let DeathsSwitch = document.getElementById("graphSwitcher__deaths");
+
       DeathsSwitch.addEventListener("click", () => {
         CasesSwitch.classList.remove("activeButton");
         RecoveredSwitch.classList.remove("activeButton");
