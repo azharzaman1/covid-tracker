@@ -63,7 +63,6 @@ const CopyrightFooter = () => {
             title="Github"
             icon={<GitHub fontSize="small" />}
           />
-          ]
           {azProfile && (
             <>
               <MuiChip
