@@ -41,7 +41,7 @@ const CopyrightFooter = () => {
       <Grid container direction="column" alignItems="center">
         <Grid item>
           <Heading2 className="footerSection__heading">
-            Design and developed by Azhar Zaman
+            Design and developed by {azProfile ? "Azhar Zaman" : "Kamran Ashraf"}
           </Heading2>
         </Grid>
         <Grid item container justifyContent="center">
