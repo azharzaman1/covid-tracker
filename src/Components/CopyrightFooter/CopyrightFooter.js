@@ -39,7 +39,7 @@ const CopyrightFooter = () => {
       data-aos-delay="1000"
     >
       <Grid container direction="column" alignItems="center">
-      {*/
+      {/*
         <Grid item>
           <Heading2 className="footerSection__heading">
             Design and developed by {azProfile ? "Azhar Zaman" : "Kamran Ashraf"}
