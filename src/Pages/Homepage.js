@@ -116,25 +116,14 @@ const Homepage = () => {
 
       CasesSwitch.addEventListener("click", () => {
         CasesSwitch.classList.add("activeButton");
-        RecoveredSwitch.classList.remove("activeButton");
         DeathsSwitch.classList.remove("activeButton");
         setGraphDataType("cases");
-      });
-
-      let RecoveredSwitch = document.getElementById("graphSwitcher__recovered");
-
-      RecoveredSwitch.addEventListener("click", () => {
-        CasesSwitch.classList.remove("activeButton");
-        RecoveredSwitch.classList.add("activeButton");
-        DeathsSwitch.classList.remove("activeButton");
-        setGraphDataType("recovered");
       });
 
       let DeathsSwitch = document.getElementById("graphSwitcher__deaths");
 
       DeathsSwitch.addEventListener("click", () => {
         CasesSwitch.classList.remove("activeButton");
-        RecoveredSwitch.classList.remove("activeButton");
         DeathsSwitch.classList.add("activeButton");
         setGraphDataType("deaths");
       });
