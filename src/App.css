@@ -61,6 +61,12 @@ img {
           align-items: center;
 }
 
+.justify-end {
+  -webkit-box-pack: flex-end;
+      -ms-flex-pack: flex-end;
+          justify-content: flex-end;
+}
+
 .between {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;

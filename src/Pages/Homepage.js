@@ -24,7 +24,6 @@ import {
   prettyPrintStat,
   prettyPrintStatPlus,
 } from "../Files/utilities";
-import { useStateValue } from "../Files/StateProvider";
 import { useMediaQuery } from "@material-ui/core";
 import CopyrightFooter from "../Components/CopyrightFooter/CopyrightFooter";
 
@@ -40,8 +39,6 @@ const Homepage = () => {
   const history = useHistory();
   const isDesktop = useMediaQuery("(min-width:960px)");
   const isTablet = useMediaQuery(theme.breakpoints.down("sm"));
-
-  let [{ currentUser, fetchedUserDetails }, dispatch] = useStateValue();
 
   const [countryNames, setCountryNames] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("worldwide");
@@ -146,14 +143,6 @@ const Homepage = () => {
     GraphsDataSwitcher();
   }, []);
 
-  const onLogout = () => {
-    if (currentUser) {
-      auth.signOut();
-    } else {
-      history.push("/auth/login");
-    }
-  };
-
   return (
     <div className="app flexColumn">
       <Container maxWidth="false" className={c.container}>
@@ -184,28 +173,7 @@ const Homepage = () => {
                   />
                 </Grid>
 
-                <Grid item className="flexRow evenly center">
-                  <Link className="header__loginText" onClick={onLogout}>
-                    {currentUser ? "Logout" : "LogIn"}
-                  </Link>
-
-                  {fetchedUserDetails && isDesktop ? (
-                    <h3 className="display__name">
-                      Welcome, {fetchedUserDetails?.displayName}
-                    </h3>
-                  ) : null}
-
-                  {currentUser?.photoURL && isDesktop ? (
-                    <div className="account flexRow evenly center pointer">
-                      <h3>{currentUser.displayName}</h3>
-                      <Avatar className="pointer" src={currentUser?.photoURL}>
-                        {!currentUser?.photoURL && currentUser?.displayName[0]}
-                      </Avatar>
-                    </div>
-                  ) : null}
-                  {!currentUser ? (
-                    <h3 className="guestText">Hello Guest</h3>
-                  ) : null}
+                <Grid item className="flexRow justify-end center">
                   {isTablet && <Grid xs />}
                   <Grid item>
                     <FormControl className="header__dropdown">
