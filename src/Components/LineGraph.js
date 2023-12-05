@@ -77,12 +77,17 @@ const LineGraph = ({
 
   useEffect(() => {
     const fetchGraphData = async () => {
-      await fetch(GRAPH_DATA_API_URL)
-        .then((response) => response.json())
-        .then((fetchedGraphData) => {
-          let finalGraphData = BuildChartData(fetchedGraphData, setGraphType);
-          setGraphData(finalGraphData);
-        });
+      try{
+        let response = await fetch(GRAPH_DATA_API_URL)
+        const fetchedGraphData = await response.json()
+
+        let finalGraphData = BuildChartData(fetchedGraphData, setGraphType);
+        setGraphData(finalGraphData);
+  
+      }catch(e){
+        console.log("Error fetching graph data")
+        setGraphData([]);
+      }
     };
 
     fetchGraphData();
@@ -99,13 +104,6 @@ const LineGraph = ({
             variant="outlined"
           >
             Cases
-          </button>
-          <button
-            className="graphSwitcherBtn"
-            id="graphSwitcher__recovered"
-            variant="outlined"
-          >
-            Recovered
           </button>
           <button
             className="graphSwitcherBtn"
