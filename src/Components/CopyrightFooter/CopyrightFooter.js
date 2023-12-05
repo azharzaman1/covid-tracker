@@ -8,12 +8,12 @@ import { useState } from "react";
 
 const useStyles = makeStyles(() => ({
   footerSection: {
-    marginTop: "8rem",
+    marginTop: "4rem",
     padding: "1rem",
   },
 
   chip: {
-    margin: "0 5px",
+    margin: "5px 5px",
     padding: "0 5px",
   },
 }));

@@ -307,9 +307,9 @@ const Homepage = () => {
                 item
                 container
                 xs="12"
-                style={{ margin: "1rem 1rem 3rem", width: "100%" }}
+                style={{ margin: "1rem 1rem", width: "100%" }}
               >
-                <Grid item xs="12" style={{ maxWidth: "97%" }}>
+                <Grid item xs="12">
                   <div className="totalCasesList__tableContainer">
                     <h3>Live Cases by countries</h3>
                     <Table
