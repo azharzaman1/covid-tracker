@@ -217,7 +217,7 @@ const Homepage = () => {
                 className="app__stats"
                 style={{ width: "100%" }}
               >
-                <InfoBox
+                {countryInfo.todayCases && typeof +countryInfo.todayCases === "number" ? <InfoBox
                   onClick={(e) => {
                     setMapDisplayDataType("cases");
                   }}
@@ -225,9 +225,10 @@ const Homepage = () => {
                   title="Cases"
                   plus={prettyPrintStatPlus(countryInfo.todayCases)}
                   total={NormalFiguresToCommas(countryInfo.cases)}
-                />
+                /> : null
+              }
 
-                <InfoBox
+                {countryInfo.todayRecovered && typeof +countryInfo.todayRecovered === "number" ? <InfoBox
                   onClick={(e) => {
                     setMapDisplayDataType("recovered");
                   }}
@@ -235,9 +236,9 @@ const Homepage = () => {
                   title="Recovered"
                   plus={prettyPrintStatPlus(countryInfo.todayRecovered)}
                   total={NormalFiguresToCommas(countryInfo.recovered)}
-                />
+                /> : null}
 
-                <InfoBox
+{countryInfo.todayDeaths && typeof +countryInfo.todayDeaths === "number" ? <InfoBox
                   onClick={(e) => {
                     setMapDisplayDataType("deaths");
                   }}
@@ -245,9 +246,9 @@ const Homepage = () => {
                   title="Deaths"
                   plus={prettyPrintStatPlus(countryInfo.todayDeaths)}
                   total={NormalFiguresToCommas(countryInfo.deaths)}
-                />
+                /> : null}
 
-                <InfoBox
+                {countryInfo.critical && typeof +countryInfo.critical === "number" ? <InfoBox
                   title="Criticals"
                   plus={prettyPrintStat(countryInfo.critical)}
                   total={NormalFiguresToCommas(
@@ -255,7 +256,7 @@ const Homepage = () => {
                   )}
                   hideTotal
                   hidePlus
-                />
+                /> : null}
               </Grid>
               <Grid item>
                 <Map
@@ -308,7 +309,7 @@ const Homepage = () => {
                 xs="12"
                 style={{ margin: "1rem 1rem 3rem", width: "100%" }}
               >
-                <Grid item xs="12" sm="5" style={{ maxWidth: "97%" }}>
+                <Grid item xs="12" style={{ maxWidth: "97%" }}>
                   <div className="totalCasesList__tableContainer">
                     <h3>Live Cases by countries</h3>
                     <Table
@@ -316,22 +317,6 @@ const Homepage = () => {
                       className="totalCasesList__table"
                     />
                   </div>
-                </Grid>
-                <Grid item xs="12" sm="7">
-                  <LineGraph
-                    needTagline
-                    mapTagline="Total Cases"
-                    graphDataDuration={50}
-                    sideBarGraph
-                    setGraphType="cases"
-                  />
-                  <LineGraph
-                    needTagline
-                    mapTagline="Total Deaths"
-                    graphDataDuration={50}
-                    sideBarGraph
-                    setGraphType="deaths"
-                  />
                 </Grid>
               </Grid>
             )}
