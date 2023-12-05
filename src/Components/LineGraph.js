@@ -102,13 +102,6 @@ const LineGraph = ({
           </button>
           <button
             className="graphSwitcherBtn"
-            id="graphSwitcher__recovered"
-            variant="outlined"
-          >
-            Recovered
-          </button>
-          <button
-            className="graphSwitcherBtn"
             id="graphSwitcher__deaths"
             variant="outlined"
           >
